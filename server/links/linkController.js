@@ -10,6 +10,7 @@ module.exports = {
       .then(function (link) {
         if (link) {
           req.navLink = link;
+          console.log('FOUND LINK: ', link);
           next();
         } else {
           next(new Error('Link not added yet'));
@@ -78,7 +79,8 @@ module.exports = {
       if (err) {
         next(err);
       } else {
-        res.redirect(savedLink.url);
+        console.log("REDIRECTING to: ", savedLink);
+        res.redirect(savedLink.url); // failing here
       }
     });
   }

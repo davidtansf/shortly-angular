@@ -8,10 +8,12 @@
     <div class='title'>{{item.title}}</div>
     <div class='original'>{{item.url}}</div>
     <div class='original'>{{item.results}}</div>
-    <a href='{{base_url}}/{{code}}'>{{item.base_url}}/{{item.code}}</a>
+    <a href='/api/links/{{item.code}}' target="_blank" ng-click="getLinks()">{{item.base_url}}/{{item.code}}</a>
   </div>
 </div>
 
 <a href="#/shorten">Shorten URLs <strong>NOW</strong> ...</a>
 <!--     <div class='cheese'>{{cheese}}</div> -->
 <!--     <div data-ng-init="getLinks()"></div> call in controller --> 
+
+<!-- ng-model='data.navLink' -->

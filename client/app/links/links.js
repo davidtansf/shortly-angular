@@ -3,7 +3,7 @@ angular.module('shortly.links', [])
 .controller('LinksController', function ($scope, Links) {
   $scope.data = {};
   $scope.cheese = 'hamburger';
-  $scope.getLinks = function(data) {
+  $scope.getLinks = function(data) { // don't think we need data
     console.log("CALLS GET LINKS");
     Links.getLinks()
     .then(function(data) {
@@ -13,6 +13,14 @@ angular.module('shortly.links', [])
     })
   };
   $scope.getLinks();
+  // $scope.getSite = function(code) {
+  //   console.log("GET SITE via Code: ", code);
+  //   Links.renderSite(code)
+  //   .then(function(data) {
+  //     console.log("DATA via getSITE: ", data);
+  //  //   $scope.data.links = data;
+  //   })
+  // };
 });
   // $scope.$on('$viewContentLoaded', function() {
   //   console.log("THIS in LINKS.JS: ", this);
