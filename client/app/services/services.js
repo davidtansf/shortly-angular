@@ -4,19 +4,22 @@ angular.module('shortly.services', [])
   var getLinks = function () {
     return $http({
       method: 'GET',
-      url: 'api/links/',
+      url: '/api/links',
     })
     .then(function(resp) {
-      // console.log("RESP: ", resp);
+      console.log("getlinkfactory: ", resp);
       return resp.data;
     });
   };
   var postLinks = function (link) {
+    console.log("POSTLINKcalled: ", link);
     return $http({
       method: 'POST',
-      url: 'api/links/',
+      url: '/api/links',
+      data: link
     })
     .then(function(resp) {
+      console.log("RESP BACK FROM POST LINKS: ", resp);
       return resp.data;
     });
   };
@@ -46,12 +49,14 @@ angular.module('shortly.services', [])
   };
 
   var signup = function (user) {
+    console.log("SIGNUPcalled: ", user);
     return $http({
       method: 'POST',
       url: '/api/users/signup',
       data: user
     })
     .then(function (resp) {
+      console.log("RESP BACK FROM SIGNUP ", resp);
       return resp.data.token;
     });
   };

@@ -1,10 +1,17 @@
-<div id='container' ng-app='shortly'>
+<input type="search" ng-model="q.url" placeholder="search URLs" />
+<!-- https://docs.angularjs.org/api/ng/filter/filter -->
+<div class='link' ng-repeat="item in data.links | filter:q:strict">
 <img src='../../assets/redirect_icon.png'/>
-<div class='info'>
-  <div class='visits'><span class='count'>{{visits}}</span>Visits</div>
-  <div class='title'>{{title}}</div>
-  <div class='original'>{{url}}</div>
-  <a href='{{base_url}}/{{code}}'>{{base_url}}/{{code}}</a>
+  <div class='info'>
+<!-- https://docs.angularjs.org/api/ng/directive/ngRepeat -->
+    <div class='visits'><span class='count'>{{item.visits}}</span>Visits</div>
+    <div class='title'>{{item.title}}</div>
+    <div class='original'>{{item.url}}</div>
+    <div class='original'>{{item.results}}</div>
+    <a href='{{base_url}}/{{code}}'>{{item.base_url}}/{{item.code}}</a>
+  </div>
 </div>
-  <div data-ng-init="getLinks()"></div>
-</div>
+
+<a href="#/shorten">Shorten URLs <strong>NOW</strong> ...</a>
+<!--     <div class='cheese'>{{cheese}}</div> -->
+<!--     <div data-ng-init="getLinks()"></div> call in controller --> 

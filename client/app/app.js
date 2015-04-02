@@ -27,9 +27,9 @@ angular.module('shortly', [
     //   templateUrl: '../client/index.html'
     //   // controller: // unknown
     // })
-    // .otherwise({
-    //   redirectTo: '/'
-    // })
+    .otherwise({
+      redirectTo: '/links'
+    })
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls

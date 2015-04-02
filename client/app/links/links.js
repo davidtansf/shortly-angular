@@ -2,14 +2,17 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, Links) {
   $scope.data = {};
+  $scope.cheese = 'hamburger';
   $scope.getLinks = function(data) {
-    // debugger;
     console.log("CALLS GET LINKS");
     Links.getLinks()
     .then(function(data) {
-      console.log(data);
+      console.log("DATA from GETLINKS: ", data);
+   //   console.log(data[0].title);
+      $scope.data.links = data;
     })
   };
+  $scope.getLinks();
 });
   // $scope.$on('$viewContentLoaded', function() {
   //   console.log("THIS in LINKS.JS: ", this);
