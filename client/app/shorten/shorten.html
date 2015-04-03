@@ -7,19 +7,18 @@
   </form>
 </div>
 
-<div ng-if='shortlyForm.link.$error.required && shortlyForm.$dirty' class="message">
+<div ng-if='shortlyForm.link.$error.required && shortlyForm.$dirty'>
   <h2>Url required</h2>
   <img src='../../assets/no.gif'/>
 </div>
-<div ng-show='shortlyForm.link.$error.url && shortlyForm.$dirty' class="message">
+<div ng-show='shortlyForm.link.$error.url && shortlyForm.$dirty'>
   <h2>Not a valid url</h2>
   <img src='../../assets/no.gif'/>
 </div>
-<div ng-show='!shortlyForm.link.$error.url && shortlyForm.$dirty' class="message">
+<div ng-show='!shortlyForm.link.$error.url && !shortlyForm.link.$error.required'>
   <h2>PARTY TIME!</h2>
   <img src='../../assets/bounce.gif'/>
 </div>
 
-
-  <a href="#/links">See Links <strong>NOW</strong> ...</a>
-<!-- <img src='../../assets/bounce.gif'/> -->
+<!-- http://www.ng-newsletter.com/posts/validations.html -->
+<!-- <a href="#/links">See Links <strong>NOW</strong> ...</a> -->
