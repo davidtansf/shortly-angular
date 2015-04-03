@@ -1,9 +1,25 @@
 <div id='container'>
-<!-- Your code here -->
-  <form name="shortenForm" ng-submit='addLink()'>
-      <input type='text' ng-model='link.url'>
-      <button>Shorten</button>
+  <form name="shortlyForm" ng-submit='addLink()' novalidate>
+      <input name='link' type='url' 
+      ng-model='link.url' required 
+      ng-class="{'error': shortlyForm.$invalid && shortlyForm.$dirty}"/>
+      <button ng-disabled='shortlyForm.$invalid'>Shorten</button>
   </form>
-  <a href="#/links">See Links <strong>NOW</strong> ...</a>
-  <div class='message'></div>
 </div>
+
+<div ng-if='shortlyForm.link.$error.required && shortlyForm.$dirty' class="message">
+  <h2>Url required</h2>
+  <img src='../../assets/no.gif'/>
+</div>
+<div ng-show='shortlyForm.link.$error.url && shortlyForm.$dirty' class="message">
+  <h2>Not a valid url</h2>
+  <img src='../../assets/no.gif'/>
+</div>
+<div ng-show='!shortlyForm.link.$error.url && shortlyForm.$dirty' class="message">
+  <h2>PARTY TIME!</h2>
+  <img src='../../assets/bounce.gif'/>
+</div>
+
+
+  <a href="#/links">See Links <strong>NOW</strong> ...</a>
+<!-- <img src='../../assets/bounce.gif'/> -->

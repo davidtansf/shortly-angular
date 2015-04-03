@@ -23,23 +23,12 @@ angular.module('shortly.services', [])
       return resp.data;
     });
   };
-  // var renderSite = function (code) {
-  //   console.log("RENDERSITEcalled: ", code);
-  //   return $http({
-  //     method: 'GET',
-  //     url: '/api/links/'+code,
-  //     data: code
-  //   })
-  //   .then(function(resp) {
-  //     console.log("RESP BACK FROM RENDER SITE: ", resp);
-  //     return resp.data;
-  //   });
-  // };
+
   return {
     getLinks: getLinks,
     postLinks: postLinks
-    // renderSite: renderSite
-  };    
+  };
+    
 })
 
 .factory('Auth', function ($http, $location, $window) {

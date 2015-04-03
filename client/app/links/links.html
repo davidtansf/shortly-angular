@@ -1,19 +1,18 @@
-<input type="search" ng-model="q.url" placeholder="search URLs" />
+<input type="search" ng-model="q.url" placeholder="search URL's" />
 <!-- https://docs.angularjs.org/api/ng/filter/filter -->
-<div class='link' ng-repeat="item in data.links | filter:q:strict">
+<!-- https://docs.angularjs.org/api/ng/filter/orderBy -->
+<div class='link' ng-repeat="item in data.links | filter:q:strict | orderBy:'-visits' ">
 <img src='../../assets/redirect_icon.png'/>
   <div class='info'>
 <!-- https://docs.angularjs.org/api/ng/directive/ngRepeat -->
-    <div class='visits'><span class='count'>{{item.visits}}</span>Visits</div>
+    <div class='visits'><span class='count'>{{item.visits}}</span>  Visits</div>
     <div class='title'>{{item.title}}</div>
     <div class='original'>{{item.url}}</div>
-    <div class='original'>{{item.results}}</div>
-    <a href='/api/links/{{item.code}}' target="_blank" ng-click="getLinks()">{{item.base_url}}/{{item.code}}</a>
+    <a href='/api/links/{{item.code}}' target="_blank" ng-click="item.visits = item.visits + 1">{{item.base_url}}/{{item.code}}</a>
   </div>
 </div>
 
 <a href="#/shorten">Shorten URLs <strong>NOW</strong> ...</a>
 <!--     <div class='cheese'>{{cheese}}</div> -->
-<!--     <div data-ng-init="getLinks()"></div> call in controller --> 
-
+<!--     <div data-ng-init="getLinks()"></div> called in controller  -->
 <!-- ng-model='data.navLink' -->

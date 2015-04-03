@@ -7,6 +7,7 @@ angular.module('shortly.shorten', [])
     Links.postLinks($scope.link)
     .then(function(data){
       console.log("SHORTEN DATA: ", data);
+      $location.path('/links');
     })
   };
 });
